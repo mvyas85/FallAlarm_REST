@@ -12,7 +12,7 @@
 		</li> 
 		<li>
 			<c:if test="${not empty loggedUser}">
-			<a href="/FallAlarm_DocPortal/checkStatus.jsp">Check Status</a>
+                <a href="PatientDetailServlet">Check Status</a>
 			</c:if>
 		</li>
 		<li>
@@ -43,7 +43,7 @@
                 <a href="/FallAlarm_DocPortal/about.jsp">About</a>
             </li>
             <li>
-                <a href="/FallAlarm_DocPortal/checkStatus.jsp">Check Status</a>
+                <a href="PatientDetailServlet">Check Status</a>
             </li>
             <li>
                 <a href="/FallAlarm_DocPortal/portfolio.jsp">Register Patient</a>

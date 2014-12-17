@@ -46,88 +46,84 @@
                 <div class="col-lg-15 col-lg-offset-1 text-center">
                     <h2>Register New Patient</h2>
                     <hr class="small">
-                    <!-- Include BootstrapValidator plugin first -->
-<form id="registrationForm" name="rform" method="post" class="form-horizontal">
-
-    <div class="form-group">
-        <label class="col-sm-3 control-label">Patient ID</label>
-        <div class="col-sm-5">
-            <input type="number" class="form-control" name="pid" pattern="[0-9]{3,5}" title="3-5 Numbers only" required />
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="col-sm-3 control-label">Name</label>
-        <div class="col-sm-5">
-            <input type="text" class="form-control" name="name" required />
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="col-sm-3 control-label">Gender</label>
-        <div class="col-sm-5">
-            <div class="radio">
-                <label>
-                    <input type="radio" name="gender" value="male" /> Male
-                </label>
-            </div>
-            <div class="radio">
-                <label>
-                    <input type="radio" name="gender" value="female" /> Female
-                </label>
-            </div>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label class="col-sm-3 control-label">Date of birth</label>
-        <div class="col-sm-5">
-            <input type="date" class="form-control" name="birthday" placeholder="YYYY/MM/DD" required />
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label class="col-sm-3 control-label">Email address</label>
-        <div class="col-sm-5">
-            <input type="email" class="form-control" name="email" />
-        </div>
-    </div>
-    
-    <div class="form-group">
-        <label class="col-sm-3 control-label">Phone</label>
-        <div class="col-sm-5">
-            <input type="tel" class="form-control" name="phone" required />
-        </div>
-    </div>
-
-
-    <div class="form-group">
-        <label class="col-sm-3 control-label">Address</label>
-        <div class="col-sm-5">
-            <input type="text" class="form-control" name="address" />
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label class="col-sm-3 control-label">Zip Code</label>
-        <div class="col-sm-5">
-            <input type="number" class="form-control" name="zip" pattern="[0-9]{5,5}" />
-        </div>
-    </div>  
-
-    <div class="form-group">
-        <div>
-                    <input type="submit" name = "submit" class="btn btn-dark" value = "Register">
-        </div>
-        </div>
-    </div>
-</form>
-
-                    <!-- /.row (nested) -->
                     
-                <!-- /.col-lg-10 -->
+                    
+					<form id="registrationForm" name="rform" action="NewPatientServlet" method="post" class="form-horizontal">
+					
+					    <div class="form-group">
+					        <label class="col-sm-3 control-label">Patient ID</label>
+					        <div class="col-sm-5">
+					            <input type="text" class="form-control" name="pid" required />
+					        </div>
+					    </div>
+					    <div class="form-group">
+					        <label class="col-sm-3 control-label">Name</label>
+					        <div class="col-sm-5">
+					            <input type="text" class="form-control" name="name" required />
+					        </div>
+					    </div>
+					    <div class="form-group">
+					        <label class="col-sm-3 control-label">Gender</label>
+					        <div class="col-sm-5">
+					            <div class="radio">
+					                <label>
+					                    <input type="radio" name="gender" value="male" /> Male
+					                </label>
+					            </div>
+					            <div class="radio">
+					                <label>
+					                    <input type="radio" name="gender" value="female" /> Female
+					                </label>
+					            </div>
+					        </div>
+					    </div>
+					
+					    <div class="form-group">
+					        <label class="col-sm-3 control-label">Date of birth</label>
+					        <div class="col-sm-5">
+					            <input type="date" class="form-control" name="birthday" placeholder="YYYY/MM/DD" required />
+					        </div>
+					    </div>
+					
+					    <div class="form-group">
+					        <label class="col-sm-3 control-label">Email address</label>
+					        <div class="col-sm-5">
+					            <input type="email" class="form-control" name="email" />
+					        </div>
+					    </div>
+					    
+					    <div class="form-group">
+					        <label class="col-sm-3 control-label">Phone</label>
+					        <div class="col-sm-5">
+					            <input type="tel" class="form-control" name="phone" required />
+					        </div>
+					    </div>
+					
+					
+					    <div class="form-group">
+					        <label class="col-sm-3 control-label">Address</label>
+					        <div class="col-sm-5">
+					            <input type="text" class="form-control" name="address" />
+					        </div>
+					    </div>
+					
+					    <div class="form-group">
+					        <label class="col-sm-3 control-label">Zip Code</label>
+					        <div class="col-sm-5">
+					            <input type="number" class="form-control" name="zip" pattern="[0-9]{5,5}" />
+					        </div>
+					    </div>  
+					
+					    <div class="form-group">
+					        <div>
+					           <input type="submit" name = "submit" class="btn btn-dark" value = "Register">
+					        </div>
+					        </div>
+					    </div>
+					</form>
+
             </div>
-            <!-- /.row -->
         </div>
-        <!-- /.container -->
     </section>
 
 </body>

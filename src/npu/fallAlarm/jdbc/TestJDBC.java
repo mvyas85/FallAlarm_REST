@@ -3,11 +3,11 @@ package npu.fallAlarm.jdbc;
 
 import java.sql.SQLException;
 
-import npu.fallAlarm.DAO.PatientDAO;
+import npu.fallAlarm.DAO.PatientDataDAO;
 
 public class TestJDBC {
 public static void main(String[] argv) throws SQLException, ClassNotFoundException {
 		
-		PatientDAO.printPatient();
+		PatientDataDAO.printPatient();
 	}
 }

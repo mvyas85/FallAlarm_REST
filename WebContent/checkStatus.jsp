@@ -46,11 +46,25 @@
                 <div class="col-lg-10 col-lg-offset-1">
                     <h2>Check Patient Status</h2>
                     <hr class="small">
-                    <form id="registrationForm" method="post" class="form-horizontal">
+                    <form id="registrationForm" action="PatientDetailServlet" method="get" class="form-horizontal">
 					    <div class="form-group">
-					        <label class="col-sm-3 control-label">Patient ID</label>
-					        <div class="col-sm-5">
-					            <input type="text" class="form-control" name="pid"/>
+					        <label class="col-sm-3 control-label">Patient ID :</label>
+					        <div class="col-sm-5" >
+								  <select name="pid_list" class="form-control">
+								    <c:forEach var="d" items="${Data}">
+								      <option value="${d}">${d}</option>
+								    </c:forEach>
+								  </select>
+								  <label class="col-sm-3 control-label">Date :</label>
+								  <input type="date" class="form-control" name="date" placeholder="YYYY/MM/DD" required />
+								   <label class="col-sm-3 control-label">Class Risk</label>
+								   <select name="classRisk" class="form-control" >
+								    <option value="1">1</option>
+								    <option value="2">2</option>
+								    <option value="3">3</option>
+								    <option value="4">4</option>
+								    <option value="5">5</option>
+								  </select>
 					        </div>
 					    </div>
 					    <div class="form-group">
@@ -67,6 +81,31 @@
     <aside class="callout">
         <div class="text-vertical-center">
             <h1>Prevent risk from falling</h1>
+             <table border=1>
+        <thead>
+            <tr>
+                <th>User Id</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>DOB</th>
+                <th>Email</th>
+                <th colspan=2>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <c:forEach items="${users}" var="user">
+                <tr>
+                    <td><c:out value="${user.userid}" /></td>
+                    <td><c:out value="${user.firstName}" /></td>
+                    <td><c:out value="${user.lastName}" /></td>
+                    <td><fmt:formatDate pattern="yyyy-MMM-dd" value="${user.dob}" /></td>
+                    <td><c:out value="${user.email}" /></td>
+                    <td><a href="UserController?action=edit&userId=<c:out value="${user.userid}"/>">Update</a></td>
+                    <td><a href="UserController?action=delete&userId=<c:out value="${user.userid}"/>">Delete</a></td>
+                </tr>
+            </c:forEach>
+        </tbody>
+    </table>
         </div>
     </aside>
     
