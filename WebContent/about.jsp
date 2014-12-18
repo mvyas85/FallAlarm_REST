@@ -57,7 +57,7 @@
                     <p>Database Leader</p>
                     <p>Frontend Leader</p>
                     <p>Project Leader</p>
-                    <p>JDBC Leader</p>
+                    <p>Internet Leader</p>
                     <p>Network Leader</p>
                     </div>
                 </div>
