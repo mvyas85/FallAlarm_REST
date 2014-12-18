@@ -44,7 +44,7 @@
     <header id="top" class="header">
         <div class="text-vertical-center">
 		<div class="col-sm-3" style="float:none;margin:0 auto;">
-            <div class="panel panel-default">
+            <div class="panel panel-default" style="width: 550px;">
 			  <div class="panel-heading">
 			  
 				  <c:choose>
@@ -58,39 +58,37 @@
 			  </div>
 			  
 			  <div class="panel-body">
+			  <div  class="logo"> </div>
 			  <c:choose>
 			      <c:when test="${ empty loggedUser}">
-			      		<form class="form-vertical" name ="frm" role="form"  method="POST" action="LoginServlet" onSubmit="return validLogin()">
+			      		<form class="form-vertical" name ="frm" style="display:inline-block;"role="form"  method="POST" action="LoginServlet" onSubmit="return validLogin()" >
 						  <div class="form-group">
 							
-							<div class="col-sm-10">
+							<div class="col-sm-10" style="margin: 7px;">
 							  <input type="text" name="username" class="form-control" id="inputUserName" placeholder="User Name">
 							</div>
 						  </div>
 						  <div class="form-group">
 							
-							<div class="col-sm-10">
+							<div class="col-sm-10" style="margin: 7px;">
 							  <input type="password" name="password" class="form-control" id="inputPassword3" placeholder="Password">
 							</div>
 						  </div>
 						  <div class="form-group">
-							<div class="col-sm-offset-2 col-sm-10">
-							  <div class="checkbox">
-								<label>
-								  <input type="checkbox"> Remember me
-								</label>
-							  </div>
-							</div>
-						  </div>
-						  <div class="form-group">
-							<div class="col-sm-offset-2 col-sm-10">
+							<div class="col-sm-offset-2 col-sm-10" style=" margin: 7px;">
 							  <button type="submit" name = "submit" value="Login" class="btn btn-default">Sign in</button>
 							</div>
 						  </div>
 						</form>
 			      </c:when>
 			      <c:otherwise>
-			      	<p> <c:out value="${loggedUser}"></c:out>
+			      <div style="text-align:left;">
+			      	<p><b>ID:</b> <c:out value="${loggedUserId}"></c:out></p>
+			      	<p> <b>Name:</b><c:out value="${loggedUserName}"></c:out></p>
+			      	<p> <b>Phone:</b><c:out value="${loggedUserPhone}"></c:out></p>
+			      	<p> <b>Email:</b><c:out value="${loggedUserEmail}"></c:out></p>
+			      	</div>
+			      	
 			      	<p><a href="LogoutServlet">Log out</a></p>
 			      </c:otherwise>
 			</c:choose>

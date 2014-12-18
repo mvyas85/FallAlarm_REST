@@ -3,7 +3,7 @@
 	<nav class="navbar navbar-default navbar-fixed-top hidden-xs" role="navigation">
 	  <div class="container">
 	  <ul class="nav navbar-nav">
-		 <li class="active"><a href="#">Help Hospitals <span class="sr-only">(current)</span></a></li>
+		 <li class="active"><a href="#"><div class="Title"></div></a></li>
          <li>
 			<a href="/FallAlarm_DocPortal/index.jsp">Home</a>
 		</li>
@@ -21,8 +21,13 @@
 			</c:if>
 		</li>
 		<li>
-			<c:if test="${not empty loggedUser}"	>
-			<a href="/FallAlarm_DocPortal/contact.jsp">Contact</a>
+			<c:if test="${not empty loggedUser}">
+			<a href="PatientInfoServlet">Patient Info</a>
+			</c:if>	
+		</li>
+		<li>
+			<c:if test="${not empty loggedUser}">
+			<a href="ContactServlet">Location Finder</a>
 			</c:if>	
 		</li>
 		
@@ -49,7 +54,7 @@
                 <a href="/FallAlarm_DocPortal/portfolio.jsp">Register Patient</a>
             </li>
             <li>
-                <a href="/FallAlarm_DocPortal/contact.jsp">Contact</a>
+                <a href="ContactServlet">Location Finder</a>
             </li>
         </ul>
     </nav>

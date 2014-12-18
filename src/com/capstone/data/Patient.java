@@ -74,6 +74,13 @@ public class Patient {
 	public void setZip(String zip) {
 		this.zip = zip;
 	}
+
+	@Override
+	public String toString() {
+		return "Patient [pid=" + pid + ", name=" + name + ", gender=" + gender
+				+ ", date=" + date + ", email=" + email + ", phone=" + phone
+				+ ", address=" + address + ", zip=" + zip + "]";
+	}
 	
 	
 }

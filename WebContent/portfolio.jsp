@@ -51,49 +51,45 @@
 					<form id="registrationForm" name="rform" action="NewPatientServlet" method="post" class="form-horizontal">
 					
 					    <div class="form-group">
-					        <label class="col-sm-3 control-label">Patient ID</label>
+					        <label class="col-sm-4 control-label">Patient ID</label>
 					        <div class="col-sm-5">
 					            <input type="text" class="form-control" name="pid" required />
 					        </div>
 					    </div>
 					    <div class="form-group">
-					        <label class="col-sm-3 control-label">Name</label>
+					        <label class="col-sm-4 control-label">Name</label>
 					        <div class="col-sm-5">
 					            <input type="text" class="form-control" name="name" required />
 					        </div>
 					    </div>
 					    <div class="form-group">
-					        <label class="col-sm-3 control-label">Gender</label>
+					        <label class="col-sm-4 control-label">Gender</label>
 					        <div class="col-sm-5">
-					            <div class="radio">
+					            <div class="radio"  style="text-align:left;">
 					                <label>
-					                    <input type="radio" name="gender" value="male" /> Male
-					                </label>
-					            </div>
-					            <div class="radio">
-					                <label>
-					                    <input type="radio" name="gender" value="female" /> Female
+					                    <input type="radio" name="gender" value="male" /> Male 
+					                    <input type="radio" name="gender" value="female" style="margin-left: 50px;position: relative;" /> Female
 					                </label>
 					            </div>
 					        </div>
 					    </div>
 					
 					    <div class="form-group">
-					        <label class="col-sm-3 control-label">Date of birth</label>
+					        <label class="col-sm-4 control-label">Date of birth</label>
 					        <div class="col-sm-5">
 					            <input type="date" class="form-control" name="birthday" placeholder="YYYY/MM/DD" required />
 					        </div>
 					    </div>
 					
 					    <div class="form-group">
-					        <label class="col-sm-3 control-label">Email address</label>
+					        <label class="col-sm-4 control-label">Email address</label>
 					        <div class="col-sm-5">
 					            <input type="email" class="form-control" name="email" />
 					        </div>
 					    </div>
 					    
 					    <div class="form-group">
-					        <label class="col-sm-3 control-label">Phone</label>
+					        <label class="col-sm-4 control-label">Phone</label>
 					        <div class="col-sm-5">
 					            <input type="tel" class="form-control" name="phone" required />
 					        </div>
@@ -101,14 +97,14 @@
 					
 					
 					    <div class="form-group">
-					        <label class="col-sm-3 control-label">Address</label>
+					        <label class="col-sm-4 control-label">Address</label>
 					        <div class="col-sm-5">
 					            <input type="text" class="form-control" name="address" />
 					        </div>
 					    </div>
 					
 					    <div class="form-group">
-					        <label class="col-sm-3 control-label">Zip Code</label>
+					        <label class="col-sm-4 control-label">Zip Code</label>
 					        <div class="col-sm-5">
 					            <input type="number" class="form-control" name="zip" pattern="[0-9]{5,5}" />
 					        </div>

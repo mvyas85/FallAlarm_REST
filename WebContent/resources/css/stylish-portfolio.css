@@ -15,7 +15,74 @@ body {
 body {
     font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
-
+.navbar-default .navbar-nav>li>a {
+	color: #FFF;
+}
+.logo{
+	background: url(../img/SlipDoctor.png);
+	background-size: 200px 171px;
+	background-repeat: no-repeat;
+	width: 200px;
+	height: 171px;
+	display:inline-block;
+	float:left
+}
+.Title{
+	background: url(../img/SlipDocTitle.png);
+	background-size: 151px 30px;
+	background-repeat: no-repeat;
+	width: 151px;
+	height: 30px;
+	margin-top:0px;
+}
+b{
+	padding-right: 5px;    
+}
+#logo{	
+	background: url(../img/SlipDoctor.png);
+	height:90px;
+    width:90px;
+   border:none;
+    -moz-background-size:100% 100%;
+-webkit-background-size:100% 100%;
+background-size:100% 100%;
+}
+#baigalmaa{
+	background-image: url(../img/baigalmaa.jpg);
+}
+#geetha{
+	background-image: url(../img/geetha.png);
+}
+#manisha{
+	background-image: url(../img/manisha.png);
+}
+#mounika{
+	background-image: url(../img/mounika.jpg);
+}
+#nithun{
+	background-image: url(../img/nithun.png);
+}
+.profile{
+    height:150px;
+    width:150px;
+   border:1px solid #021a40;
+    -moz-background-size:100% 100%;
+-webkit-background-size:100% 100%;
+background-size:100% 100%;
+	margin:7px;
+	display:inline-block;
+}
+.profile_title p{
+	margin-left: 30px;
+	margin-right:30px;
+	display:inline-block;
+}
+.prile_itle:first-child{
+	margin-left: 10px;
+}
+.prile_itle:last-child{
+	margin-right: 10px;
+}
 .text-vertical-center {
     display: table-cell;
     text-align: center;
@@ -166,7 +233,7 @@ hr.small {
 /* About */
 
 .about {
-    padding: 50px 0;
+    padding-top: 50px;
 }
 
 /* Services */
@@ -175,6 +242,12 @@ hr.small {
     padding: 50px 0;
 }
 
+.inlne-input{
+	 display:block;width:160px  !important;float:left !important;
+}
+.inlne-lable{
+	 display:block;width:120px  !important;float:left !important;
+}
 .service-item {
     margin-bottom: 30px;
 }
@@ -233,8 +306,81 @@ hr.small {
     }
 }
 
-/* Footer */
 
-footer {
-    padding: 100px 0;
+/* Table formating */
+
+
+@import "http://fonts.googleapis.com/css?family=Montserrat:300,400,700";
+.rwd-table {
+  margin: 1em 0;
+  min-width: 300px;
+}
+
+.rwd-table tr {
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+.rwd-table th {
+  display: none;
+}
+.rwd-table td {
+  display: block;
+}
+.rwd-table td:first-child {
+  padding-top: .5em;
+}
+.rwd-table td:last-child {
+  padding-bottom: .5em;
+}
+.rwd-table td:before {
+  content: attr(data-th) ": ";
+  font-weight: bold;
+  width: 6.5em;
+  display: inline-block;
+}
+@media (min-width: 480px) {
+  .rwd-table td:before {
+    display: none;
+  }
+}
+.rwd-table th, .rwd-table td {
+  text-align: left;
+}
+@media (min-width: 480px) {
+  .rwd-table th, .rwd-table td {
+    display: table-cell;
+    padding: .25em .5em;
+  }
+  .rwd-table th:first-child, .rwd-table td:first-child {
+    padding-left: 0;
+  }
+  .rwd-table th:last-child, .rwd-table td:last-child {
+    padding-right: 0;
+  }
+}
+
+
+
+.rwd-table {
+  background: #34495E;
+  color: #fff;
+  border-radius: .4em;
+  width:95%;
+  margin:0px auto;
+      max-height: 400px;
+    overflow: scroll;
+}
+.rwd-table tr {
+  border-color: #46627f;
+}
+.rwd-table th, .rwd-table td {
+  margin: .5em 1em;
+}
+@media (min-width: 480px) {
+  .rwd-table th, .rwd-table td {
+    padding: 1em !important;
+  }
+}
+.rwd-table th, .rwd-table td:before {
+  color: #dd5;
 }

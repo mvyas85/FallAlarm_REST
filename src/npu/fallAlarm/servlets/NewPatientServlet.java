@@ -45,8 +45,6 @@ public class NewPatientServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String contextPath = request.getContextPath();
-		System.out.println("trying to insert patient");
 		PrintWriter out = response.getWriter();
 		Patient patient = new Patient();
 		
@@ -68,21 +66,19 @@ public class NewPatientServlet extends HttpServlet {
 			PatientDAO.insertPatientData(patient);
 			
 			out.println("<script type=\"text/javascript\">");
-			   out.println("alert('Patient :" + request.getParameter("name") +" is created !!' );");
-			   out.println("location='index.jsp';");
-			   out.println("</script>");
+		    out.println("alert('Patient :" + request.getParameter("name") +" is created !!' );");
+		    out.println("location='index.jsp';");
+		    out.println("</script>");
 		} catch (SQLException e) {
 			
-			//String error_msg = e.getMessage().toLowerCase();
+			String str = "Error creating patient !";
 			out.println("<script type=\"text/javascript\">");
-			   out.println("alert('Error creating patient!' );");
-			   out.println("location='index.jsp';");
-			   out.println("</script>");
+		    out.println("alert('"+str+"');");
+		    out.println("location='portfolio.jsp';");
+		    out.println("</script>");
 			System.out.println(e.getMessage());
-	       // response.sendRedirect(response.encodeRedirectURL(contextPath + "/portfolio.jsp")); //error page 
+
 		}
-
-
 
 	}
 

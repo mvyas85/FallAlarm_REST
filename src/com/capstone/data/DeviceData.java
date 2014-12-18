@@ -16,8 +16,9 @@ public class DeviceData implements Serializable {
 
     private String DeviceID;
     private double  AccX , AccY , AccZ , GyrX , GyrY , GyrZ , LocX , LocY ;
+    private int classRisk;
 
-    public DeviceData(String deviceID, double accX, double accY, double accZ, double gyrX, double gyrY, double gyrZ, double locX, double locY) {
+    public DeviceData(String deviceID, double accX, double accY, double accZ, double gyrX, double gyrY, double gyrZ, double locX, double locY,int classRisk) {
         DeviceID = deviceID;
         AccX = accX;
         AccY = accY;
@@ -27,6 +28,7 @@ public class DeviceData implements Serializable {
         GyrZ = gyrZ;
         LocX = locX;
         LocY = locY;
+        this.classRisk = classRisk;
     }
 
     public String getDeviceID() {
@@ -101,7 +103,25 @@ public class DeviceData implements Serializable {
         LocY = locY;
     }
 
-    public static byte[] serialize(Object obj) throws IOException {
+    
+    public int getClassRisk() {
+		return classRisk;
+	}
+
+	public void setClassRisk(int classRisk) {
+		this.classRisk = classRisk;
+	}
+
+	
+	@Override
+	public String toString() {
+		return "DeviceData [DeviceID=" + DeviceID + ", AccX=" + AccX
+				+ ", AccY=" + AccY + ", AccZ=" + AccZ + ", GyrX=" + GyrX
+				+ ", GyrY=" + GyrY + ", GyrZ=" + GyrZ + ", LocX=" + LocX
+				+ ", LocY=" + LocY + ", classRisk=" + classRisk + "]";
+	}
+
+	public static byte[] serialize(Object obj) throws IOException {
         ByteArrayOutputStream b = new ByteArrayOutputStream();
         ObjectOutputStream o = new ObjectOutputStream(b);
         o.writeObject(obj);

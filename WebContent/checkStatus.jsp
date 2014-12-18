@@ -46,26 +46,25 @@
                 <div class="col-lg-10 col-lg-offset-1">
                     <h2>Check Patient Status</h2>
                     <hr class="small">
-                    <form id="registrationForm" action="PatientDetailServlet" method="get" class="form-horizontal">
+                    <form id="registrationForm" action="PatientDetailServlet" method="post" class="form-horizontal">
 					    <div class="form-group">
-					        <label class="col-sm-3 control-label">Patient ID :</label>
-					        <div class="col-sm-5" >
-								  <select name="pid_list" class="form-control">
+					        
+					        <label class="col-sm-3 inlne-lable">Patient ID :</label>
+								  <select name="pid_list" class="form-control inlne-input">
 								    <c:forEach var="d" items="${Data}">
 								      <option value="${d}">${d}</option>
 								    </c:forEach>
 								  </select>
-								  <label class="col-sm-3 control-label">Date :</label>
-								  <input type="date" class="form-control" name="date" placeholder="YYYY/MM/DD" required />
-								   <label class="col-sm-3 control-label">Class Risk</label>
-								   <select name="classRisk" class="form-control" >
+							<label class="col-sm-3 control-label inlne-lable">Date :</label>
+								  <input type="date" class="form-control inlne-input" name="searchdate" placeholder="YYYY/MM/DD"  value="${searchdate}" required />
+							<label class="col-sm-3 control-label inlne-lable">Class Risk</label>
+								   <select name="classRisk" class="form-control inlne-input" >
 								    <option value="1">1</option>
 								    <option value="2">2</option>
 								    <option value="3">3</option>
 								    <option value="4">4</option>
 								    <option value="5">5</option>
 								  </select>
-					        </div>
 					    </div>
 					    <div class="form-group">
         					<div>
@@ -77,35 +76,50 @@
         <!-- /.container -->
     </section>
     
+     <c:out value="${searchResults}"></c:out>
     <!-- Callout -->
     <aside class="callout">
         <div class="text-vertical-center">
-            <h1>Prevent risk from falling</h1>
-             <table border=1>
-        <thead>
-            <tr>
-                <th>User Id</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>DOB</th>
-                <th>Email</th>
-                <th colspan=2>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <c:forEach items="${users}" var="user">
-                <tr>
-                    <td><c:out value="${user.userid}" /></td>
-                    <td><c:out value="${user.firstName}" /></td>
-                    <td><c:out value="${user.lastName}" /></td>
-                    <td><fmt:formatDate pattern="yyyy-MMM-dd" value="${user.dob}" /></td>
-                    <td><c:out value="${user.email}" /></td>
-                    <td><a href="UserController?action=edit&userId=<c:out value="${user.userid}"/>">Update</a></td>
-                    <td><a href="UserController?action=delete&userId=<c:out value="${user.userid}"/>">Delete</a></td>
-                </tr>
-            </c:forEach>
-        </tbody>
-    </table>
+        		  <c:choose>
+				      <c:when test="${empty searchResults}">
+             			<h1>Prevent risk from falling</h1>
+			      	  </c:when>
+			      	  <c:otherwise>
+
+						<table class="rwd-table">
+					        <thead>
+					            <tr>
+					                <th>PID</th>
+					                <th>AccX</th>
+					                <th>AccY</th>
+					                <th>AccZ</th>
+					                
+					                <th>GyrX</th>
+					                <th>GyrY</th>
+					                <th>GyrZ</th>
+					                
+					                <th>Location</th>
+					            </tr>
+					        </thead>
+					        <tbody>
+					            <c:forEach items="${resultData}" var="user">
+					                <tr>
+					                    <td><c:out value="${user.deviceID}" /></td>
+					                    <td><c:out value="${user.accX}" /></td>
+					                    <td><c:out value="${user.accY}" /></td>
+					                    <td><c:out value="${user.accZ}" /></td>
+					                    
+					                    <td><c:out value="${user.gyrX}" /></td>
+					                    <td><c:out value="${user.gyrY}" /></td>
+					                    <td><c:out value="${user.gyrZ}" /></td>
+					                    
+					                    <td><a class="btn btn-light" href="ContactServlet?locX=${user.locX}&locY=${user.locY}&PID=${user.deviceID}">View Location</a></td>
+					                </tr>
+					            </c:forEach>
+					        </tbody>
+			    		</table>
+			      	 </c:otherwise>
+				 </c:choose>
         </div>
     </aside>
     

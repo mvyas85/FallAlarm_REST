@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -40,18 +41,64 @@
 
 <%@ include file="./navBar.jsp"%>
     <!-- About -->
-    <section id="about" class="about">
+    <section id="about" class="about" style="padding-bototm:0 !important">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2>We help you!</h2>
                     <p class="lead">With the help of our bands,We save you when you fall!</p>
+                    <h3 style="color:#428BCA">Support Team</h4>
+                    <div class="profile" id="baigalmaa"></div>
+                    <div class="profile" id="geetha"></div>
+                    <div class="profile" id="manisha"></div>
+                    <div class="profile" id="mounika"></div>
+                    <div class="profile" id="nithun"></div>
+                    <div class="profile_title">
+                    <p>Database Leader</p>
+                    <p>Frontend Leader</p>
+                    <p>Project Leader</p>
+                    <p>JDBC Leader</p>
+                    <p>Network Leader</p>
+                    </div>
                 </div>
             </div>
             <!-- /.row -->
         </div>
         <!-- /.container -->
     </section>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1 text-center">
+                
+                    <div class="profile" id="logo"></div>
+                    <h4><strong>Slip Doctor</strong>
+                    </h4>
+                    <p>47671 Westinghouse Drive<br>Fremont, CA 94539</p>
+                    <ul class="list-unstyled">
+                        <li><i class="fa fa-phone fa-fw"></i> (123) 456-7890</li>
+                        <li><i class="fa fa-envelope-o fa-fw"></i>  <a href="mailto:name@example.com">help@hospital.com</a>
+                        </li>
+                    </ul>
+                    <br>
+                    <ul class="list-inline">
+                        <li>
+                            <a href="#"><i class="fa fa-facebook fa-fw fa-3x"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-twitter fa-fw fa-3x"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-dribbble fa-fw fa-3x"></i></a>
+                        </li>
+                    </ul>
+                    <hr class="small">
+                    <p class="text-muted">Copyright &copy; Your Website 2014</p>
+                </div>
+            </div>
+        </div>
+    </footer>
 
 </body>
 

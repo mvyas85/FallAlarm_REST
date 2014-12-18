@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 import npu.fallAlarm.jdbc.JDBC;
@@ -103,5 +104,44 @@ public static void printPatient(){
         }
 		
 		return id;
+	}
+	
+	public static ArrayList<DeviceData> getFilteredPatientData(String pid, Date searchDate, int classRisk){
+		ArrayList<DeviceData> searchResultSet = new ArrayList<DeviceData>();
+		
+		try {
+			Connection connection=JDBC.getConnection();
+			
+			Statement stmt = connection.createStatement();
+			
+
+			java.util.Date myUtilDate = searchDate;  
+			java.sql.Date mySqlDate = new java.sql.Date(myUtilDate.getTime());  
+			
+			
+			String query = "SELECT * FROM `FallAlarm`.`PATIENT_DATA` where pid = '"+pid+"' and  currdate='"+mySqlDate+"' and classrisk = '"+classRisk+"';";
+        	ResultSet res = stmt.executeQuery(query);
+			
+			while(res.next()){
+				DeviceData aRow = new DeviceData(res.getString("PID"),
+											 	 res.getDouble("ACCX"),
+												 res.getDouble("ACCY"),
+												 res.getDouble("ACCZ"),
+												 res.getDouble("GYRX"),
+												 res.getDouble("GYRY"),
+												 res.getDouble("GYRZ"),
+												 res.getDouble("LOCX"),
+												 res.getDouble("LOCY"),
+												 res.getInt("ClassRisk"));
+				searchResultSet.add(aRow);
+				
+				System.out.println(aRow.toString()+"\n");
+			 }
+			 connection.close();
+        } 
+		catch (Exception ex) {
+			ex.printStackTrace(); 
+        }
+		return searchResultSet;
 	}
 }
