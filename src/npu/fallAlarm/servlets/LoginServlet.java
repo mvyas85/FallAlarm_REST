@@ -37,10 +37,6 @@ public class LoginServlet extends HttpServlet {
 
 		Staff staff= StaffDAO.loginCheck(request.getParameter("username"),request.getParameter("password")); 
 
-		
-		System.out.println("Checking information"+ staff.toString());
-	        String contextPath = request.getContextPath();
-	        
 		     if (staff!= null)
 		     {
 			      HttpSession session = request.getSession(true);	    
@@ -49,14 +45,15 @@ public class LoginServlet extends HttpServlet {
 		          session.setAttribute("loggedUserId",staff.getSid());
 		          session.setAttribute("loggedUserName",staff.getName());  		    
 		          session.setAttribute("loggedUserPhone",staff.getPhone());  		    
-		          session.setAttribute("loggedUserEmail",staff.getEmail());  	
+		          session.setAttribute("loggedUserEmail",staff.getEmail());  
+		          
+		          request.removeAttribute("loginError");
 		     }
 		     else {
-		    	 //request.setAttribute("loginError","Incorrect password");
+		    	 request.setAttribute("loginError","Incorrect Username/Password");
 		     }
 
 				request.getRequestDispatcher("index.jsp").forward(request, response);	
-	         //response.sendRedirect(response.encodeRedirectURL(contextPath + "/index.jsp")); //error page 
 	}
 
 }

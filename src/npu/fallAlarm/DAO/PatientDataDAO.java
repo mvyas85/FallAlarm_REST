@@ -119,11 +119,15 @@ public static void printPatient(){
 			java.sql.Date mySqlDate = new java.sql.Date(myUtilDate.getTime());  
 			
 			
-			String query = "SELECT * FROM `FallAlarm`.`PATIENT_DATA` where pid = '"+pid+"' and  currdate='"+mySqlDate+"' and classrisk = '"+classRisk+"';";
-        	ResultSet res = stmt.executeQuery(query);
+			String query = "SELECT * FROM `FallAlarm`.`PATIENT_DATA` where pid = '"+pid+"' and  DATE(currdate)='"+mySqlDate+"' and classrisk = '"+classRisk+"';";
+        	
+			System.out.println(query);
+			
+			ResultSet res = stmt.executeQuery(query);
 			
 			while(res.next()){
 				DeviceData aRow = new DeviceData(res.getString("PID"),
+												 res.getTimestamp("CurrDate"),
 											 	 res.getDouble("ACCX"),
 												 res.getDouble("ACCY"),
 												 res.getDouble("ACCZ"),

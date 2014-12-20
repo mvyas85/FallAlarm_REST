@@ -35,6 +35,9 @@ public class ContactServlet extends HttpServlet {
 		request.setAttribute("locationX", request.getParameter("locX"));
 		request.setAttribute("locationY", request.getParameter("locY"));
 		String pid = request.getParameter("PID");
+		String time = request.getParameter("Time");
+		String classRisk = request.getParameter("classRisk");
+		String searchdate = request.getParameter("searchdate");
 		Patient patient = null;
 
 		
@@ -47,9 +50,13 @@ public class ContactServlet extends HttpServlet {
 		if(patient != null){
 
 			request.setAttribute("pid", pid);
+			request.setAttribute("Time", time);
 			request.setAttribute("pName", patient.getName());
 			request.setAttribute("pPhone", patient.getPhone());
+			request.setAttribute("searchdate", searchdate);
+			request.setAttribute("classRisk", classRisk);
 		}
+		System.out.println("search Date "+ searchdate);
 		request.getRequestDispatcher("contact.jsp").forward(request, response);	
 	}
 

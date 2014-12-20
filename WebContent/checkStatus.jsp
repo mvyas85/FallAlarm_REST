@@ -34,6 +34,11 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+
+    <script>
+		var selection = <%= request.getAttribute("selectedDepartment") %>;
+		</script>
+     
 </head>
 
 <body>
@@ -58,12 +63,12 @@
 							<label class="col-sm-3 control-label inlne-lable">Date :</label>
 								  <input type="date" class="form-control inlne-input" name="searchdate" placeholder="YYYY/MM/DD"  value="${searchdate}" required />
 							<label class="col-sm-3 control-label inlne-lable">Class Risk</label>
-								   <select name="classRisk" class="form-control inlne-input" >
-								    <option value="1">1</option>
-								    <option value="2">2</option>
-								    <option value="3">3</option>
-								    <option value="4">4</option>
-								    <option value="5">5</option>
+								   <select id="department" name="classRisk" class="form-control inlne-input" >
+									    <option value="1">1</option>
+									    <option value="2">2</option>
+									    <option value="3">3</option>
+									    <option value="4">4</option>
+									    <option value="5">5</option>
 								  </select>
 					    </div>
 					    <div class="form-group">
@@ -89,7 +94,7 @@
 						<table class="rwd-table">
 					        <thead>
 					            <tr>
-					                <th>PID</th>
+					                <th>Time</th>
 					                <th>AccX</th>
 					                <th>AccY</th>
 					                <th>AccZ</th>
@@ -104,7 +109,7 @@
 					        <tbody>
 					            <c:forEach items="${resultData}" var="user">
 					                <tr>
-					                    <td><c:out value="${user.deviceID}" /></td>
+					                    <td><c:out value="${user.dateTime}" /></td>
 					                    <td><c:out value="${user.accX}" /></td>
 					                    <td><c:out value="${user.accY}" /></td>
 					                    <td><c:out value="${user.accZ}" /></td>
@@ -113,7 +118,7 @@
 					                    <td><c:out value="${user.gyrY}" /></td>
 					                    <td><c:out value="${user.gyrZ}" /></td>
 					                    
-					                    <td><a class="btn btn-light" href="ContactServlet?locX=${user.locX}&locY=${user.locY}&PID=${user.deviceID}">View Location</a></td>
+					                    <td><a class="btn btn-light" href="ContactServlet?locX=${user.locX}&locY=${user.locY}&PID=${user.deviceID}&searchdate=${searchdate}&Time=${user.dateTime}&classRisk=${selectedDepartment}">View Location</a></td>
 					                </tr>
 					            </c:forEach>
 					        </tbody>
@@ -122,7 +127,9 @@
 				 </c:choose>
         </div>
     </aside>
-    
+    <script>
+		document.getElementById("department").selectedIndex = selection -1;
+	</script>
 </body>
 
 </html>

@@ -32,18 +32,18 @@ public class PatientDetailServlet extends HttpServlet {
     public PatientDetailServlet() {
         super();
 		pids = null;
-		try {
-			pids = PatientDAO.getAllPatientIDs();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		try {
+			pids = PatientDAO.getAllPatientIDs();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		request.setAttribute("Data", pids);
 		request.getRequestDispatcher("checkStatus.jsp").forward(request, response);	
 	}
@@ -52,16 +52,23 @@ public class PatientDetailServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		try {
+				pids = PatientDAO.getAllPatientIDs();
+		
 				Date searchDate = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("searchdate"));
 				ArrayList<DeviceData> resultData =PatientDataDAO.getFilteredPatientData(request.getParameter("pid_list"),searchDate,Integer.parseInt(request.getParameter("classRisk")));
 			
+				System.out.println("selection is "+ Integer.parseInt(request.getParameter("classRisk")) );
 				request.setAttribute("Data", pids);
 				request.setAttribute("searchdate", request.getParameter("searchdate"));
+				request.setAttribute("selectedDepartment", Integer.parseInt(request.getParameter("classRisk")) );
 				request.setAttribute("searchResults","Number of records found: "+resultData.size()); 
 				request.setAttribute("resultData",resultData); 
 				
 		} catch (ParseException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		

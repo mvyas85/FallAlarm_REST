@@ -29,18 +29,17 @@ public class PatientInfoServlet extends HttpServlet {
     public PatientInfoServlet() {
         super();
 		pids = null;
-		try {
-			pids = PatientDAO.getAllPatientIDs();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		try {
+			pids = PatientDAO.getAllPatientIDs();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		request.setAttribute("pids", pids);
 		request.getRequestDispatcher("patientInfo.jsp").forward(request, response);	
 	}
@@ -49,8 +48,9 @@ public class PatientInfoServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		try {
+			pids = PatientDAO.getAllPatientIDs();
+		
 			Patient patients = PatientDAO.getAllPatientInfo(request.getParameter("pid_list"));
 
 			request.setAttribute("pids", pids);
@@ -64,7 +64,7 @@ public class PatientInfoServlet extends HttpServlet {
 
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}
+		} 
 		
 		request.getRequestDispatcher("patientInfo.jsp").forward(request, response);		
 	}

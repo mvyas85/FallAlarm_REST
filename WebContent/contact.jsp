@@ -51,7 +51,6 @@ src="http://maps.googleapis.com/maps/api/js">
 	}
 	
 	function locateFall(newX,newY){
-		console.log('locate me started running' +newX,newY);
 	    var myCenter=new google.maps.LatLng(newX,newY);
 		
 		function initialize()
@@ -64,7 +63,6 @@ src="http://maps.googleapis.com/maps/api/js">
 		
 		var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
 		
-		//alert('value for pName is '+ pName);
 		var marker=new google.maps.Marker({
 		  position:myCenter,
 		  });
@@ -74,9 +72,12 @@ src="http://maps.googleapis.com/maps/api/js">
 		var pid = document.getElementById("pid").value;
 		var pName = document.getElementById("pName").value;
 		var pPhone = document.getElementById("pPhone").value;
+		var pTime = document.getElementById("pTime").value;
+		var classRisk = document.getElementById("classRisk").value;
+		var searchdate = document.getElementById("searchdate").value;
 		
 		var infowindow = new google.maps.InfoWindow({
-			  content:'<b style="text-align:center">FALL !!</b><br/><b>PID:</b>'+pid+'<br/><b>Name:</b>'+pName+'<br/><b>Phone:</b>'+pPhone
+			  content:'<b style="text-align:center">Patient at Risk :'+classRisk+'<br>on '+searchdate+' @ '+pTime+'</b><br/><b>PID:</b>'+pid+'<br/><b>Name:</b>'+pName+'<br/><b>Phone:</b>'+pPhone
 			  });
 
 			infowindow.open(map,marker);
@@ -142,6 +143,9 @@ src="http://maps.googleapis.com/maps/api/js">
 				    <input  type="hidden" id="pid" name="pid" value="${pid}"/> 
 				    <input  type="hidden" id="pName" name="pName" value="${pName}" /> 
 				    <input  type="hidden" id="pPhone" name="pPhone" value="${pPhone}" /> 
+				    <input  type="hidden" id="pTime" name="pTime" value="${Time}" /> 
+				    <input type ="hidden" id="classRisk" name="classRisk" value="${classRisk}" />
+				    <input type ="hidden" id="searchdate" name="searchdate" value="${searchdate}" />
                     <!-- <a href="#" class="btn btn-lg btn-dark" onClick="locateMe()">Look at Me!</a> -->
                 </div>
             </div>

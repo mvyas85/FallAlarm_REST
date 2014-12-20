@@ -42,7 +42,7 @@
 
     <!-- Header -->
     <header id="top" class="header">
-        <div class="text-vertical-center">
+        <div class="text-vertical-center" style="vertical-align: middle;">
 		<div class="col-sm-3" style="float:none;margin:0 auto;">
             <div class="panel panel-default" style="width: 550px;">
 			  <div class="panel-heading">
@@ -62,6 +62,7 @@
 			  <c:choose>
 			      <c:when test="${ empty loggedUser}">
 			      		<form class="form-vertical" name ="frm" style="display:inline-block;"role="form"  method="POST" action="LoginServlet" onSubmit="return validLogin()" >
+						  <div id="error_msg">${loginError}</div>
 						  <div class="form-group">
 							
 							<div class="col-sm-10" style="margin: 7px;">

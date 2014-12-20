@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 
 /**
  * Created by manisha on 12/6/14.
@@ -15,11 +17,13 @@ public class DeviceData implements Serializable {
     static final long serialVersionUID =7903520492787961684L;
 
     private String DeviceID;
-    private double  AccX , AccY , AccZ , GyrX , GyrY , GyrZ , LocX , LocY ;
+    private String DateTime;
+	private double  AccX , AccY , AccZ , GyrX , GyrY , GyrZ , LocX , LocY ;
     private int classRisk;
 
-    public DeviceData(String deviceID, double accX, double accY, double accZ, double gyrX, double gyrY, double gyrZ, double locX, double locY,int classRisk) {
-        DeviceID = deviceID;
+    public DeviceData(String DeviceID,Timestamp DateTime, double accX, double accY, double accZ, double gyrX, double gyrY, double gyrZ, double locX, double locY,int classRisk) {
+    	this.DeviceID = DeviceID;
+    	this.DateTime = new SimpleDateFormat("hh:mm:ss aa").format(DateTime);
         AccX = accX;
         AccY = accY;
         AccZ = accZ;
@@ -29,6 +33,8 @@ public class DeviceData implements Serializable {
         LocX = locX;
         LocY = locY;
         this.classRisk = classRisk;
+        
+        System.out.println(DateTime.toString());
     }
 
     public String getDeviceID() {
@@ -38,6 +44,13 @@ public class DeviceData implements Serializable {
     public void setDeviceID(String deviceID) {
         DeviceID = deviceID;
     }
+    public String getDateTime() {
+		return DateTime;
+	}
+
+	public void setDateTime(String dateTime) {
+		DateTime = dateTime;
+	}
 
     public double getAccX() {
         return AccX;
@@ -112,13 +125,13 @@ public class DeviceData implements Serializable {
 		this.classRisk = classRisk;
 	}
 
-	
 	@Override
 	public String toString() {
-		return "DeviceData [DeviceID=" + DeviceID + ", AccX=" + AccX
-				+ ", AccY=" + AccY + ", AccZ=" + AccZ + ", GyrX=" + GyrX
-				+ ", GyrY=" + GyrY + ", GyrZ=" + GyrZ + ", LocX=" + LocX
-				+ ", LocY=" + LocY + ", classRisk=" + classRisk + "]";
+		return "DeviceData [DeviceID=" + DeviceID + ", DateTime=" + DateTime
+				+ ", AccX=" + AccX + ", AccY=" + AccY + ", AccZ=" + AccZ
+				+ ", GyrX=" + GyrX + ", GyrY=" + GyrY + ", GyrZ=" + GyrZ
+				+ ", LocX=" + LocX + ", LocY=" + LocY + ", classRisk="
+				+ classRisk + "]";
 	}
 
 	public static byte[] serialize(Object obj) throws IOException {
